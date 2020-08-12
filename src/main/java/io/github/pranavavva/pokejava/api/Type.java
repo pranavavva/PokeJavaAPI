@@ -1,3 +1,5 @@
+package io.github.pranavavva.pokejava.api;
+
 public enum Type {
     NORMAL,
     FIGHT,
