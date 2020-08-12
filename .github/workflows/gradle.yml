@@ -25,6 +25,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Coverage report
-    - uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+      run: ./gradlew jacocoTestReport
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
