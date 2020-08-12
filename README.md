@@ -1,4 +1,5 @@
 ![build](https://github.com/pranavavva/PokeJavaAPI/workflows/build/badge.svg)
+[![codecov](https://codecov.io/gh/pranavavva/PokeJavaAPI/branch/master/graph/badge.svg)](https://codecov.io/gh/pranavavva/PokeJavaAPI)
 
 # PokeJavaAPI
 
