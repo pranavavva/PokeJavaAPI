@@ -9,6 +9,7 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    id 'jacoco'
 }
 
 repositories {
@@ -32,4 +33,18 @@ dependencies {
 test {
     // Use junit platform for unit tests
     useJUnitPlatform()
+
+    finalizedBy jacocoTestReport
 }
+
+jacocoTestReport {
+    dependsOn test
+
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.enabled true
+    }
+}
+
+check.dependsOn jacocoTestReport
