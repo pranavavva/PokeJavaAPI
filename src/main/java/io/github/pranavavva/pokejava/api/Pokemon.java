@@ -3,12 +3,13 @@ package io.github.pranavavva.pokejava.api;
 import java.io.Serializable;
 
 public abstract class Pokemon implements Serializable {
-    
+
     private static final long serialVersionUID = -6852096195746600870L;
 
     private final String name;
-    private final Type type;
-    private final int health;
+    private final Type type1;
+    private final Type type2;
+    private int health;
     private final int attack;
     private final int defense;
     private final int spAttack;
@@ -19,10 +20,11 @@ public abstract class Pokemon implements Serializable {
     private final Move move3;
     private final Move move4;
 
-    public Pokemon(String name, Type type, int health, int attack, int defense, int spAttack, int spDefense, int speed,
-            Move move1, Move move2, Move move3, Move move4) {
+    public Pokemon(String name, Type type1, Type type2, int health, int attack, int defense, int spAttack,
+            int spDefense, int speed, Move move1, Move move2, Move move3, Move move4) {
         this.name = name;
-        this.type = type;
+        this.type1 = type1;
+        this.type2 = type2;
         this.health = health;
         this.attack = attack;
         this.defense = defense;
@@ -36,52 +38,59 @@ public abstract class Pokemon implements Serializable {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    public Type getType() {
-        return type;
+    public Type getType1() {
+        return this.type1;
+    }
+
+    public Type getType2() {
+        return this.type2;
     }
 
     public int getHealth() {
-        return health;
+        return this.health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 
     public int getAttack() {
-        return attack;
+        return this.attack;
     }
 
     public int getDefense() {
-        return defense;
+        return this.defense;
     }
 
     public int getSpAttack() {
-        return spAttack;
+        return this.spAttack;
     }
 
     public int getSpDefense() {
-        return spDefense;
+        return this.spDefense;
     }
 
     public int getSpeed() {
-        return speed;
+        return this.speed;
     }
 
     public Move getMove1() {
-        return move1;
+        return this.move1;
     }
 
     public Move getMove2() {
-        return move2;
+        return this.move2;
     }
 
     public Move getMove3() {
-        return move3;
+        return this.move3;
     }
 
     public Move getMove4() {
-        return move4;
+        return this.move4;
     }
 
-    
 }
