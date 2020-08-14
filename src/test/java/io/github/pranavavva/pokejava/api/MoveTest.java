@@ -8,36 +8,36 @@ import org.mockito.Mockito;
 public class MoveTest {
 
     private Move testMove = Mockito.mock(Move.class,
-    Mockito.withSettings().useConstructor("Test move", Type.NORMAL, MoveCategory.PHYSICAL, 100, 100, 1.0)
-            .defaultAnswer(Mockito.CALLS_REAL_METHODS));
+            Mockito.withSettings().useConstructor("Test move", Type.NORMAL, MoveCategory.PHYSICAL, 100, 100, 1.0)
+                    .defaultAnswer(Mockito.CALLS_REAL_METHODS));
 
     @Test
-    public void testName() {
+    public void testGetName() {
         assertEquals("Test move", testMove.getName());
     }
 
     @Test
-    public void testType() {
+    public void testGetType() {
         assertEquals(Type.NORMAL, testMove.getType());
     }
 
     @Test
-    public void testCategory() {
+    public void testGetCategory() {
         assertEquals(MoveCategory.PHYSICAL, testMove.getCategory());
     }
 
     @Test
-    public void testPower() {
+    public void testGetPower() {
         assertEquals(100, testMove.getPower());
     }
 
     @Test
-    public void testPoints() {
+    public void testGetPoints() {
         assertEquals(100, testMove.getPoints());
     }
 
     @Test
-    public void testAccuracy() {
+    public void testGetAccuracy() {
         assertEquals(1.0, testMove.getAccuracy());
     }
 
