@@ -1,4 +1,4 @@
-package io.github.pranavavva.pokejava.api;
+package io.github.pranavavva.pokejavaapi;
 
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package io.github.pranavavva.pokejava.api;
+package io.github.pranavavva.pokejavaapi;
 
 /**
  * Determines which set of stats are used in damage calculation. PHYSICAL Moves

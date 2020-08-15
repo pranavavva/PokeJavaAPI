@@ -1,4 +1,4 @@
-package io.github.pranavavva.pokejava.api;
+package io.github.pranavavva.pokejavaapi;
 
 import java.io.Serializable;
 
