@@ -1,4 +1,4 @@
-package io.github.pranavavva.pokejava.api;
+package io.github.pranavavva.pokejavaapi;
 
 /**
  * Defines the combat type of a Pokemon or Move. Pokemon can have one or two
