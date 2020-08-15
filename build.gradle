@@ -61,4 +61,14 @@ publishing {
             }
         }
     }
+
+    publications {
+        gpr(MavenPublication) {
+            groupId = 'io.github.pranavavva.pokejavaapi'
+            artifactId = 'PokeJavaAPI'
+            version = '0.3.0'
+
+            from components.java
+        }
+    }
 }
