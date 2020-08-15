@@ -10,6 +10,7 @@ plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
     id 'jacoco'
+    id 'maven-publish'
 }
 
 repositories {
@@ -37,6 +38,16 @@ test {
     finalizedBy jacocoTestReport
 }
 
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'sources'
+}
+
+task javadocJar(type: Jar) {
+    from javadoc
+    classifier = 'javadoc'
+}
+
 jacocoTestReport {
     dependsOn test
 
@@ -48,3 +59,28 @@ jacocoTestReport {
 }
 
 check.dependsOn jacocoTestReport
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/pranavavva/PokeJavaAPI")
+            credentials {
+                username = project.findProperty("gpr.user")
+                password = project.findProperty("gpr.key")
+            }
+        }
+    }
+
+    publications {
+        gpr(MavenPublication) {
+            groupId = 'io.github.pranavavva.pokejavaapi'
+            artifactId = 'PokeJavaAPI'
+            version = '0.3.1'
+
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+        }
+    }
+}
