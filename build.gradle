@@ -11,12 +11,15 @@ plugins {
     id 'java-library'
     id 'jacoco'
     id 'maven-publish'
+    id 'com.jfrog.bintray' version '1.+'
 }
 
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    mavenCentral()
+    google()
 }
 
 dependencies {
@@ -29,6 +32,8 @@ dependencies {
 
     // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+
+    classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+'
 }
 
 test {
@@ -60,6 +65,48 @@ jacocoTestReport {
 
 check.dependsOn jacocoTestReport
 
+def group = "io.github.pranavavva.pokejavaapi"
+def id = "PokeJavaAPI"
+def pkgVersion = "0.3.1-test.1"
+def pkgVersionDesc = "Testing version 0.3.1"
+
+bintray {
+    user = project.findProperty("bintray.user")
+    key = project.findProperty("bintray.key")
+    publications = ["gpr"]
+    pkg {
+        repo = "maven"
+        name = id
+        licenses = ["MIT"]
+        vcsUrl = "https://github.com/pranavavva/PokeJavaAPI.git"
+        version {
+            name = pkgVersion
+            desc = pkgVersionDesc
+            released = new Date()
+            vcsTag = pkgVersion
+        }
+    }
+}
+
+def pomConfig = {
+    licenses {
+        license {
+            name "MIT License"
+            url "https://opensource.org/licenses/MIT"
+            distribution "repo"
+        }
+        developers {
+            id "pranavavva"
+            name "Pranav Avva"
+            email "pranav.avva@gmail.com"
+        }
+    }
+
+    scm {
+        url "https://github.com/pranavavva/PokeJavaAPI"
+    }
+}
+
 publishing {
     repositories {
         maven {
@@ -76,7 +123,15 @@ publishing {
         gpr(MavenPublication) {
             groupId = 'io.github.pranavavva.pokejavaapi'
             artifactId = 'PokeJavaAPI'
-            version = '0.3.1'
+            version = pkgVersion
+
+            pom.xml {
+                def root = asNode()
+                root.appendNode("description", "PokeJavaAPI provides an interface to create a Pokemon battle simulator")
+                root.appendNode("name", "PokeJavaAPI")
+                root.appendNode("url", "https://github.com/pranavavva/PokeJavaAPI")
+                root.children().last() + pomConfig
+            }
 
             from components.java
             artifact sourcesJar
