@@ -6,10 +6,6 @@
  * User Manual available at https://docs.gradle.org/6.5.1/userguide/java_library_plugin.html
  */
 
-def pkgId = "PokeJavaAPI"
-def pkgGroup = "io.github.pranavavva.pokejavaapi"
-def pkgVersion = "0.3.1-test.2"
-
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
@@ -63,6 +59,10 @@ jacocoTestReport {
 }
 
 check.dependsOn jacocoTestReport
+
+def pkgId = "PokeJavaAPI"
+def pkgGroup = "io.github.pranavavva.pokejavaapi"
+def pkgVersion = "0.3.1-test.2"
 
 publishing {
     repositories {
