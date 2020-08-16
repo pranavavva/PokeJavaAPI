@@ -24,5 +24,8 @@ jobs:
       run: chmod +x gradlew
     - name: Generate Javadoc with Gradle
       run: ./gradlew javadoc
-    - name: Copy Javadoc to docs/ folder
-      run: cp -r build/docs/javadoc docs/
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build/docs/javadoc
