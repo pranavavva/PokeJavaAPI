@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"io.github.pranavavva.pokejavaapi","l":"Move"},{"p":"io.github.pranavavva.pokejavaapi","l":"MoveCategory"},{"p":"io.github.pranavavva.pokejavaapi","l":"Pokemon"},{"p":"io.github.pranavavva.pokejavaapi","l":"Type"}]
