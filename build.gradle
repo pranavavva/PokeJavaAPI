@@ -60,6 +60,10 @@ jacocoTestReport {
 
 check.dependsOn jacocoTestReport
 
+def pkgId = "PokeJavaAPI"
+def pkgGroup = "io.github.pranavavva.pokejavaapi"
+def pkgVersion = "0.3.1-test.2"
+
 publishing {
     repositories {
         maven {
@@ -74,9 +78,9 @@ publishing {
 
     publications {
         gpr(MavenPublication) {
-            groupId = 'io.github.pranavavva.pokejavaapi'
-            artifactId = 'PokeJavaAPI'
-            version = '0.3.1'
+            groupId = pkgGroup
+            artifactId = pkgId
+            version = pkgVersion
 
             from components.java
             artifact sourcesJar
